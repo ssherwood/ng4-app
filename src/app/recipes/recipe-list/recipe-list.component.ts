@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Recipe } from "../recipe.model";
 
 @Component({
@@ -7,11 +7,15 @@ import { Recipe } from "../recipe.model";
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() selectedRecipeEvent = new EventEmitter<Recipe>();
+
   recipes: Recipe[] = [
-    new Recipe('A Test Recipe',
-      'This is simply a test',
-      'http://www.seriouseats.com/recipes/assets_c/2015/12/20151218-braised-chicken-thigh-cabbage-pancetta-recipe-kenji-14-thumb-1500xauto-428923.jpg'),
-    new Recipe('A Test Recipe 2', 'This is simply a second test', 'http://www.seriouseats.com/recipes/assets_c/2015/12/20151218-braised-chicken-thigh-cabbage-pancetta-recipe-kenji-14-thumb-1500xauto-428923.jpg')
+    new Recipe('Ahi Tuna Steaks with Pesto',
+      'The rich Italian flavors of pesto marry well with tuna steak.',
+      'https://www.kroger.com/asset/5450705584ae5f4624625df8?data=1'),
+    new Recipe('Almond Crusted Chicken Breasts',
+      'This kid-friendly chicken also works well for an elegant meal.',
+      'https://www.kroger.com/asset/5450706884ae5f4624625fb0?data=1')
   ];
 
   constructor() { }
@@ -19,4 +23,7 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRecipeSelected(recipe: Recipe) {
+    this.selectedRecipeEvent.emit(recipe);
+  }
 }
