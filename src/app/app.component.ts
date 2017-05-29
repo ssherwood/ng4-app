@@ -7,14 +7,12 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  selectedView: string = "recipes";
 
   ngOnInit(): void {
     firebase.initializeApp({
+      // todo figure out how to get this from a non-checked in file
+      apiKey: "",
+      authDomain: ""
     });
-  }
-
-  onMenuItemSelected(menuItem: string) {
-    this.selectedView = menuItem;
   }
 }
