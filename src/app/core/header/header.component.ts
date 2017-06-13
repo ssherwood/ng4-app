@@ -30,4 +30,8 @@ export class HeaderComponent implements OnInit {
   onFetchData() {
     this.dataStorageService.getRecipes();
   }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
 }

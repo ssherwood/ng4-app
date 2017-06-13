@@ -59,6 +59,10 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  getIngredientsFromForm() {
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  }
+
   onSubmit() {
     //console.log('Sumbitted', this.recipeForm);
 
