@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 
 import {HeaderComponent} from "./header/header.component";
 import {HomeComponent} from "./home/home.component";
@@ -23,7 +23,8 @@ import {AuthGuard} from "../auth/auth.guard";
     AppRoutingModule,
     HeaderComponent
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard]
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class CoreModule {
 }

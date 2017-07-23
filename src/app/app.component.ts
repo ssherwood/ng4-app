@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     firebase.initializeApp({
       // todo figure out how to get this from a non-checked in file
       apiKey: "",
-      authDomain: ""
+      authDomain: "ng4-app-recipes.firebaseapp.com"
     });
   }
 }
